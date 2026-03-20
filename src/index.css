@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── ZOCO Brand Tokens ── */
+@theme {
+  --color-zoco-navy:     #0B2236;
+  --color-zoco-navy-md:  #0F2D45;
+  --color-zoco-navy-lt:  #1A3D5C;
+  --color-zoco-lime:     #B8C900;
+  --color-zoco-lime-dk:  #96A500;
+  --color-zoco-lime-lt:  #D4E000;
+}
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  @apply bg-slate-50 dark:bg-zoco-navy text-slate-800 dark:text-white transition-colors duration-300;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ── Entrance Animations ── */
+@keyframes slide-in-bottom {
+  from { transform: translateY(1rem); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-in {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.fade-in { animation-name: fade-in; }
+.slide-in-from-bottom-4 { animation-name: slide-in-bottom; }
+.duration-700 { animation-duration: 0.7s; }
+
